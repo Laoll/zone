@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <select is="select1" v-model="select1">
+
+    </select>
+</div>
+
+   <script>
+       var select1=Vue.extend({
+           template:'<select> <option>A</option><option>B</option><option>C</option></select>'
+       });
+       var vm = new Vue({
+           el: '#demo',
+           data: {
+               firstName: 'Fodo',
+               lastName: 'Bar',
+               select1:''
+           },
+           components:{
+               'select1':select1
+           }
+
+       })
+   </script>
+</body>
+</html>

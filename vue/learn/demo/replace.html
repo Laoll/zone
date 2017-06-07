@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<!--<div id="demo">-->
+    <pre>
+        Vue 实例时，使用 replace 有什么差别？
+    </pre>
+    <div id="replace" class="foo"></div>
+    <div id="insert" class="foo"></div>
+<!--</div>-->
+
+   <script>
+       var vm1=new Vue({
+           el:"#replace",
+           template:"<p class='bar'>replaced</p>"
+       })
+       var  vm2=new Vue({
+           el:"#insert",
+           replace:false,
+           template:"<p class='bar'>inserted</p>"
+       })
+   </script>
+</body>
+</html>

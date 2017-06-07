@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <my-component></my-component>
+    <my-component></my-component>
+    <my-component></my-component>
+</div>
+
+   <script>
+       var Child=Vue.extend({
+           template:"<div>this is child {{msg}} template</div>",
+           data:function(){
+               return{
+                   msg:"EFDF"
+               }
+           }
+       })
+       var br=Vue.extend({
+           template:"<br>"
+       })
+       var Parent=Vue.extend({
+           template:"---Parent:{{msg}}<my-component></my-component>----<br-component></br-component>",
+           components:{
+               'my-component':Child,
+               'br-component':br
+           },
+           data:function(){
+               return {
+                   msg:"hello"
+               }
+           }
+       })
+
+       var  vm=new Vue({
+           el:"#app",
+          components:{
+              'my-component':Parent
+          }
+       })
+   </script>
+</body>
+</html>

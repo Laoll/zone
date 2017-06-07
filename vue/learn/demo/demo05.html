@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/script.js"></script>
+</head>
+<body>
+    <div id="app-5">
+       <button v-on:click="ChangeMessage">换一个</button>
+       <p>{{message}}</p>
+    </div>
+    <script>
+        var app5=new Vue({
+            el:"#app-5",
+            data:{
+                message:1
+            },
+            methods:{
+                ChangeMessage:function(){
+                    this.message=this.message+1;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <input type="text" v-model="parentMsg"/>
+    <example
+            :prop-a="100"
+            prop-b="7822"
+            :prop-c="100"
+            :prop-e.sync="parentMsg"
+            prop-f="13"
+            :prop-g="100"
+            prop-h="100"
+            prop-m="100"
+            ></example>
+</div>
+<template id="pp">
+    <ul>
+        <li>propA: {{propA+1}}</li>
+        <li>propB: {{propB+1}}</li>
+        <li>propC: {{propC+1}}</li>
+        <li>propD: {{propD+1}}</li>
+        <li>propE: {{propE+1}}</li>
+        <li>propF: {{propF+1}}</li>
+        <li>propG: {{propG+1}}</li>
+        <li>propH: {{propH+1}}</li>
+        <li>propM: {{propM+1}}</li>
+    </ul>
+</template>
+
+   <script>
+      Vue.component('example',{
+          props:{
+              propA:Number,
+              propM:[String,Number],
+              propB:{
+                  type:String,
+                  required:true
+              },
+              propC:{
+                  type:Number,
+                  default:100
+              },
+              propD:{
+                  type:Object,
+                  default:function(){
+                      return {message:"hello"}
+                  }
+              },
+              propE:{
+                  twoWay:true
+              },
+              propF:{
+                  validator:function(value){
+                      return value>10
+                  }
+              },
+              propG:{
+                  coerce:function(val){
+                      return val=""
+                  }
+              },
+              propH:{
+                  coerce:function(val){
+                        return JSON.parse(val)
+                  }
+              },
+              propM:{
+                  coerce:function(val){
+
+                  }
+              }
+          },
+          template:"#pp"
+      });
+       var vm=new Vue({
+           el:"#demo",
+           data:{
+               parentMsg:"hello"
+           }
+       })
+   </script>
+</body>
+</html>

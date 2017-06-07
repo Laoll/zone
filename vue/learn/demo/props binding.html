@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+   1.
+    <input type="text" v-model="parentMsg"/>
+    <br/>
+    <child :msg="parentMsg"></child>default, one-way-down binding
+    <br/>
+    <child :msg.sync="parentMsg"></child>two-way binding
+    <br/>
+    <child :msg.once="parentMsg" v-once></child>explicit one-time binding
+    <br/>
+
+</div>
+
+   <script>
+      Vue.component('child',{
+          props:['msg'],
+          template:'<span><input type="" v-model="msg"/></span>'
+      });
+       var vm = new Vue({
+           el: '#demo',
+           data:{
+               parentMsg:"hello"
+           }
+       })
+   </script>
+</body>
+</html>

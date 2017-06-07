@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+  <my-component></my-component>
+    <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at commodi consequuntur doloribus
+            eligendi expedita, illo illum iusto optio, perspiciatis placeat quaerat quisquam sapiente vero voluptatum?
+            Distinctio esse magnam perspiciatis.
+        </li>
+        <li>Aspernatur culpa cum dignissimos dolore doloremque error fugiat in ipsum modi nesciunt nostrum perferendis
+            possimus provident quae quaerat quo, quod recusandae sed sunt veniam. A dicta ex itaque quidem velit.
+        </li>
+        <li>Accusantium doloremque excepturi facilis ipsum iste, laudantium minus non repellat reprehenderit sit!
+            Dolorem obcaecati officia porro quibusdam reprehenderit. Dolor nam omnis optio voluptatibus. Alias
+            architecto at commodi eius fugiat, ratione!
+        </li>
+    </ul>
+    <my-component></my-component>
+    <my-component2></my-component2>
+</div>
+
+   <script>
+       var select1=Vue.extend({
+           template:'<select> <option>A</option><option>B</option><option>C</option></select>'
+       });
+       var MyComponent = Vue.extend({
+           template:"<div><h1>{{msg}}</h1></div>",
+           data:function(){
+               return{
+                   msg:"hello hello"
+               }
+           }
+       });
+       Vue.component('my-component',MyComponent);
+       var MyComponent2=Vue.extend({
+           template:'<div><h2>{{msg}}</h2></div>',
+           data:function(){
+               return {
+                   msg:"this is component2"
+               }
+           }
+       });
+       Vue.component('my-component2',MyComponent2);
+       var vm = new Vue({
+           el:"#demo"
+       })
+   </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <child msg="hello"></child>
+</div>
+
+   <script>
+       Vue.config.debug=true;
+       Vue.component("child",{
+           props:['msg'],
+           template:'<span>{{msg}}</span>',
+//           data:function(){
+//               return {
+//                   msg:"hello word"
+//               }
+//           }
+       });
+       var vm=new Vue({
+           el:"#app"
+       })
+   </script>
+</body>
+</html>

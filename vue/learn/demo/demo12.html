@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+       <span>Message:{{msg}}</span>
+       <input type="text" v-model="msg" placeholder="this is msg"/>
+       <br/>
+       <span v-once>this will never change:{{msg1}}</span>
+       <input type="text" v-model="msg1" placeholder="this is msg1"/>
+   </div>
+   <script>
+       new Vue({
+           el:"#app",
+           data:{
+               msg:"hello Vue.js",
+               msg1:"Hello vue.js"
+           }
+       })
+   </script>
+</body>
+</html>

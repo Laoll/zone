@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/script.js"></script>
+</head>
+<body>
+   <div id="demo-09">
+       <input type="text" v-model="msg"  />
+       <p>Message:{{msg}}</p>
+
+       <p v-html="html"></p>
+       <p v-html="script"></p>
+
+       <h1 v-once>this is once Message:{{msg}}</h1>
+       <button @click="dosomething">click</button>
+   </div>
+
+    <script>
+        var vm9=new Vue({
+            el:"#demo-09",
+            data:{
+                msg:"example",
+                html:"<span>this is  html</span>",
+                script:"<script>console.log('a');<\/script>"
+            },
+            methods:{
+                dosomething:function(event){
+                    alert("text");
+                }
+            }
+        })
+        vm9.dosomething();
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <partial name="my-partial"></partial>
+    </div>
+
+    <script>
+        Vue.partial('my-partial','<p>this is a partial!{{msg}}</p>');
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"hello vue"
+            }
+        })
+    </script>
+</body>
+</html>
